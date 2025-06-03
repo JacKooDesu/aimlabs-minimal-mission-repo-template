@@ -1,0 +1,30 @@
+name: Add Mission Source
+description: Add a new mission source to the repository.
+title: "[Add Mission Source]"
+labels: ["source-request"]
+body:
+- type: input
+  attributes:
+    label: git URL
+    description: The git URL of the mission source repository.
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Mission Archive URL
+    description: |
+      The URL to the mission archive file (e.g., .zip, .tar.gz) that contains compiled mission data.
+      GitHub release URLs is recommended.
+      If not provided, the workflow will attempt to fetch the latest release from the repository.
+- type: checkboxes
+  attributes:
+    label: Agreement
+    description: |
+      By submitting this issue, you agree to the following:
+      - The mission source does not violate any copyrights or licenses.
+      - The mission should not contain any offensive or inappropriate content.
+      - The mission source should not contain any malware or harmful code.
+    options:
+      - label: "Agree to the terms"
+        required: true
+
