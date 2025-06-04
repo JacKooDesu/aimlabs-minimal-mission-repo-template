@@ -6,8 +6,13 @@ on:
 
 jobs:
   add-srouce:
-    if: ${{ github.event.issue.body }}
+    if: ${{ github.event.issue.labels.name == 'source request' }}
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: echo ${{ github.event.issue.body }}
+        run: |
+          echo '${{ github.event.issue.body }}'
+          echo '${{ github.event.issue.title }}'
+          echo '${{ github.event.issue.labels }}'
+          echo '${{ github.event.issue.user.login }}'
+        
