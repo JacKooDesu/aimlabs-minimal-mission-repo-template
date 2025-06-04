@@ -40,13 +40,13 @@ jobs:
           add-paths: |
             contents/*
 
-  # delete-issue:
-  #   needs: add-srouce
-  #   if: ${{ github.event.issue.labels.name }} == 'source request'
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Delete Issue
-  #       run: |
-  #         echo "Deleting issue #${{ github.event.issue.number }}"
-  #         gh issue delete ${{ github.event.issue.number }} --confirm
-  #         echo "Issue deleted successfully."
+  delete-issue:
+    needs: add-srouce
+    if: ${{ github.event.issue.labels.name }} == 'source request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Issue
+        run: |
+          echo "Deleting issue #${{ github.event.issue.number }}"
+          gh issue delete ${{ github.event.issue.number }} --confirm
+          echo "Issue deleted successfully."
