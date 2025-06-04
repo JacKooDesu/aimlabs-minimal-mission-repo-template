@@ -6,7 +6,7 @@ on:
 
 jobs:
   add-srouce:
-    if: ${{ github.event.issue.labels.name == 'source request' }}
+    if: ${{ github.event.issue.labels.name }} == 'source request'
     runs-on: ubuntu-latest
     steps:
       - name: Test
