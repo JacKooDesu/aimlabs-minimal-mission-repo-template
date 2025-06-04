@@ -1,8 +1,14 @@
 name: Add Mission Source
 description: Add a new mission source to the repository.
-title: "[Add Mission Source]"
-labels: ["source-request"]
+title: "[Mission Name]"
+labels: ["source request"]
 body:
+- type: input
+  attributes:
+    label: Mission Name
+    description: |
+      The name of the mission for identification purposes.
+      Scope will automatically added with who create this issue to prevent conflicts.
 - type: input
   attributes:
     label: git URL

@@ -1,0 +1,13 @@
+name: Mission Source Verified
+
+on:
+  issues:
+    types: [opened, closed]
+
+jobs:
+  add-srouce:
+    if: ${{ github.event.issue.body }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: echo ${{ github.event.issue.body }}
