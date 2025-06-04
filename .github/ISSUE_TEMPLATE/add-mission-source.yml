@@ -11,6 +11,15 @@ body:
       Scope will automatically added with who create this issue to prevent conflicts.
 - type: input
   attributes:
+    label: Version
+    description: |
+      The version of the mission source.
+      This is used to track changes and updates to the mission.
+      It should follow semantic versioning (e.g., 1.0.0).
+  validations:
+    required: true
+- type: input
+  attributes:
     label: git URL
     description: The git URL of the mission source repository.
   validations:
