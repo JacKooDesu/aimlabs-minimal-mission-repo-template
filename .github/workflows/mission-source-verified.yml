@@ -19,9 +19,8 @@ jobs:
 
       - name: Get Result Path
         run: |
-          result=cat "$(<result-path)"
           echo "RESULT<<EOF" >> $GITHUB_ENV
-          echo "${ result }" >> $GITHUB_ENV
+          cat "$(echo $(<result-path))" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       - name: Create PR
