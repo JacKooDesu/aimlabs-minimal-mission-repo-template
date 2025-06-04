@@ -29,11 +29,14 @@ const issueMdArr = process.argv[3].split("\n");
   let missionGitUrl = issueMdArr[10];
   let missionArchiveUrl = issueMdArr[14];
 
+  missionName.replace(/ /g, "-");
+
   fs.mkdir(`./contents/${user}/${missionName}`, { recursive: true }, (err) => {
     if (err) throw err;
 
     missionJson = {
       name: missionName,
+      author: user,
       version: missionVersion,
       gitUrl: missionGitUrl,
       archiveUrl: missionArchiveUrl,
@@ -47,3 +50,9 @@ const issueMdArr = process.argv[3].split("\n");
     );
   });
 })();
+
+// create metadata file for PR create
+fs.writeFile(
+  "result-path",
+  `./contents/${user}/${missionName}/${missionVersion}.json`
+);
