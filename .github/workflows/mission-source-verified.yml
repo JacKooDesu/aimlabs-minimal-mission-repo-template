@@ -19,9 +19,10 @@ jobs:
 
       - name: Get Result Path
         run: |
-          echo 'RESULT<<EOF' >> $GITHUB_ENV
-          cat "$(<result-path)" >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+          result=cat "$(<result-path)"
+          echo "RESULT<<EOF" >> $GITHUB_ENV
+          echo "${ result }" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
