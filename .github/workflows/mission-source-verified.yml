@@ -23,6 +23,9 @@ jobs:
           echo "$(cat $(<result-path))" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
+      - name: Update Snapshot
+        run: node utils/updateSnapshot.js
+
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
         with:
