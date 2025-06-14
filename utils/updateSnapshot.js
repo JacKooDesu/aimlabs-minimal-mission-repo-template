@@ -1,6 +1,10 @@
 import fs from "fs/promises";
 
 let missions = {};
+await fs.readFile("sourceName").then((sourceName) => {
+  missions["name"] = `${sourceName.toString()}@${process.argv[2]}`;
+});
+
 missions["missions"] = [];
 
 await fs
