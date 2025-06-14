@@ -71,7 +71,7 @@ const issueMdArr = process.argv[3].split("\n");
   // create metadata file for PR create
   fs.writeFile(
     "result-path",
-    `./contents/${user}/${missionName}/${missionVersion}.json`,
+    `./contents/${user}/${missionName}/mission.json`,
     (err) => {
       if (err) throw err;
       console.log("Metadata file created successfully.");
