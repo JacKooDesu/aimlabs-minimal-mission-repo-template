@@ -54,13 +54,13 @@ const issueMdArr = process.argv[3].split("\n");
         name: missionName,
         author: user,
         version: missionVersion,
-        gitUrl: missionGitUrl,
-        archiveUrl: missionArchiveUrl,
+        git_url: missionGitUrl,
+        archive_url: missionArchiveUrl,
         info: info,
       };
 
       return fs.writeFile(
-        `./contents/${user}/${missionName}/${missionVersion}.json`,
+        `./contents/${user}/${missionName}/mission.json`,
         JSON.stringify(missionJson, null, 2)
       );
     })

@@ -1,8 +1,10 @@
 import fs from "fs/promises";
 
+let repositoryInfo = process.argv[2].split("/");
+
 let missions = {};
 await fs.readFile("sourceName").then((sourceName) => {
-  missions["name"] = `${sourceName.toString()}@${process.argv[2]}`;
+  missions["name"] = `${sourceName.toString()}@${repositoryInfo[0]}`;
 });
 
 missions["missions"] = [];
@@ -18,6 +20,7 @@ await fs
             missions["missions"].push({
               name: subFile,
               author: file,
+              detail_url: `https://${repositoryInfo[0].toLowerCase()}.github.io/${repositoryInfo[1]}/contents/${file}/${subFile}/mission.json`,
             });
 
             console.log(
@@ -26,7 +29,6 @@ await fs
           });
         })
       );
-    console.log(p);
     return Promise.all(p);
   })
   .catch((err) => {

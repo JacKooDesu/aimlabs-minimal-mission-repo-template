@@ -24,7 +24,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: Update Snapshot
-        run: node utils/updateSnapshot.js
+        run: node utils/updateSnapshot.js ${{ github.repository }}
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
